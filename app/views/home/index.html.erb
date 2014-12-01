@@ -1,0 +1,13 @@
+<h1>The Artist Game</h1>
+<h2>A game of traversing through similar artists to find a final artist!</h2>
+
+
+<form method="POST" action="/search">
+<%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+<label>Enter the name of an Artist!
+<input type="text" name="artwork_keyterm" autofocus="true"></label>
+<input type="submit" name="submit" value="Search">
+</form>
+<div id="the_map"></div>
+
+<h6>Powered by <a href="http://artsy.net">Artsy</a></h6>
