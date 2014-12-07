@@ -10,7 +10,7 @@ class Connection
 		result = @api.search(q: keyword)
 		arr = []
 		result.results.each do |result|
-			if result.type == "Artist"
+			if result.type == "Artist" || result.type == "Artwork"
 				arr << result
 			end
 		end

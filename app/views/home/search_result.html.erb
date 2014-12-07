@@ -1,10 +1,12 @@
-<h1>Choose an artwork to start with:</h1>
+<h1>Choose an artwork or artist to start with:</h1>
 
-<% @results.each do |result| %>
-<li>
-<a href="/show?link=<%=result.self%>&type=<%=result.type%>">
-<img src="<%=result.thumbnail%>"/>
-<p><%=result.title=%></p>
-</a>
-</li>
-<% end %>
+<div class="search_results">
+	<% @results.each do |result| %>
+		<li>
+			<a href="/show?link=<%=result.self%>&type=<%=result.type%>">
+				<img src="<%=result.thumbnail%>"/>
+				<p><%=result.title=%></p>
+			</a>
+		</li>
+	<% end %>
+</div>
