@@ -1,17 +1,21 @@
 <h1>The Artist Game<br><small>A game of traversing through similar artists to find a final artist!</small></h1>
 
 <div class="jumbotron">
-<form method="POST" action="/search">
-<div class="form-group">
-<%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
-<label>Enter the name of an Artist or Artwork!
-<input type="text" name="artwork_keyterm" autofocus="true"></label>
-<input type="submit" name="submit" value="Search" class="btn btn-default">
-</div>
-</form>
+
+  <form method="POST" action="/results">
+    <div class="form-horizontal">
+    <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+    <label>START: 
+      <input type="text" name="artwork_keyterm" autofocus="true" placeholder="eg: 'Matisse'" required></label></br>
+    <label>GOAL: 
+      <input type="text" name="artwork_keyterm_goal" placeholder="eg: 'Starry Night'" required></label></br>
+    <input type="submit" name="submit" value="Search" class="btn btn-default">
+    </div>
+  </form>
+
 </div>
 <footer>
-<a href="#" data-toggle="modal" data-target="#aboutModal">How to play</a> | Powered by <a href="http://artsy.net">Artsy</a>
+<a href="#" data-toggle="modal" data-target="#aboutModal">How to play</a> | Powered by <a href="http://artsy.net" target="_blank">Artsy</a>
 
 <!-- Button trigger modal -->
 

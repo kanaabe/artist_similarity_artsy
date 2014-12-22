@@ -1,12 +1,13 @@
 class Connection
-	#attr_accessor :api
-
-	def self.search(keyword)
+	
+	def self.start
 		@api = Hyperclient.new('https://api.artsy.net/api') do |api|
   		api.headers['Accept'] = 'application/vnd.artsy-v2+json'
   		api.headers['X-Xapp-Token'] = ENV['TOKEN']
 		end
-		
+	end
+
+	def self.search(keyword)
 		result = @api.search(q: keyword)
 		arr = []
 		result.results.each do |result|
@@ -17,11 +18,12 @@ class Connection
 		arr
 	end
 
-	def self.get(link,type)
-		@result = Hyperclient.new(link) do |api|
-  		api.headers['Accept'] = 'application/vnd.artsy-v2+json'
-  		api.headers['X-Xapp-Token'] = ENV['TOKEN']
-		end
-	end
+	# def self.get(link,type)
+	# 	@result = Hyperclient.new(link) do |api|
+ #  		api.headers['Accept'] = 'application/vnd.artsy-v2+json'
+ #  		api.headers['X-Xapp-Token'] = ENV['TOKEN']
+	# 	end
+	# end
+	
 	
 end

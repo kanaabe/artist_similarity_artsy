@@ -14,6 +14,14 @@ li {
 	text-align: center;
 }
 
+.result_start{
+	float: left;
+}
+
+.result_goal{
+	float: right;
+}
+
 footer{
 	text-align: center;
 }

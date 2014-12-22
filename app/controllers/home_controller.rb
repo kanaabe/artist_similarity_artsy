@@ -5,7 +5,9 @@ class HomeController < ApplicationController
 	end
 
 	def search
-		@results = Connection.search(params["artwork_keyterm"])
+		@connection = Connection.start
+		@start_results = Connection.search(params["artwork_keyterm"])
+		@goal_results = Connection.search(params["artwork_keyterm_goal"])
 		render '/home/search_result'
 	end
 
