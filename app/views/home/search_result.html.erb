@@ -1,29 +1,40 @@
 
+<form action="/game" method="POST">
+	<%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+	<div class="container">
 
-<div class="container">
+		<div class="result_start search_results">
+			<h3>Choose an artwork or artist to start with:</h3>
+			<% @start_results.each do |result| %>
+				<li>
+					<input type="radio" name="starting_article" value="<%=result.self%>" class="radio_item" id="<%=result.self%>"/>
+					<!-- <a href="/show?link=<%=result.self%>&type=<%=result.type%>"> -->
+					<label for="<%=result.self%>" class="label_item">
+					<img src="<%=result.thumbnail%>"/>
+					<p><%=result.title%></p>
+					<!-- </a> -->
+					</label>
+				</li>
+			<% end %>
+		</div>
 
-<div class="result_start search_results">
-	<h3>Choose an artwork or artist to start with:</h3>
-	<% @start_results.each do |result| %>
-		<li>
-			<a href="/show?link=<%=result.self%>&type=<%=result.type%>">
-				<img src="<%=result.thumbnail%>"/>
-				<p><%=result.title=%></p>
-			</a>
-		</li>
-	<% end %>
-</div>
 
+		<div class="result_goal search_results">
+			<h3>Choose an artwork or artist as the goal:</h3>
+			<% @goal_results.each do |result| %>
+				<li>
+					<input type="radio" name="ending_article" value="<%=result.self%>" class="radio_item" id="<%=result.self%>"/>
+					<!-- <a href="/show?link=<%=result.self%>&type=<%=result.type%>"> -->
+					<label for="<%=result.self%>" class="label_item">
+					<img src="<%=result.thumbnail%>"/>
+					<p><%=result.title%></p>
+					<!-- </a> -->
+					</label>
+				</li>
+			<% end %>
+		</div>
 
-<div class="result_goal search_results">
-	<h3>Choose an artwork or artist as the goal:</h3>
-	<% @goal_results.each do |result| %>
-		<li>
-			<a href="/show?link=<%=result.self%>&type=<%=result.type%>">
-				<img src="<%=result.thumbnail%>"/>
-				<p><%=result.title=%></p>
-			</a>
-		</li>
-	<% end %>
-</div>
-</div>
+	</div>
+	<input type="submit" name="Start Game!" value="Start Game!"/>
+
+</form>

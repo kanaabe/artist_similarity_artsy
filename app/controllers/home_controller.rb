@@ -20,4 +20,8 @@ class HomeController < ApplicationController
 		end
 	end
 
+	def game
+		raise params.inspect
+	end
+
 end
