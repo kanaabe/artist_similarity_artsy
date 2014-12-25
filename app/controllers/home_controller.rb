@@ -21,7 +21,11 @@ class HomeController < ApplicationController
 	end
 
 	def game
-		raise params.inspect
+
+	end
+
+	def gamesetup
+		render 'game'
 	end
 
 end
