@@ -21,7 +21,7 @@ class HomeController < ApplicationController
 	end
 
 	def game
-
+		
 	end
 
 	def gamesetup

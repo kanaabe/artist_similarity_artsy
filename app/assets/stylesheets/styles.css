@@ -27,13 +27,18 @@ footer{
 }
 
 .radio_item{
-display: none !important;
+	display: none !important;
 }
 
 .label_item {
-opacity: 1;
+	opacity: 1;
 }
 
 .radio_item:checked + label {
-opacity: .4;
+	opacity: .4;
+}
+
+iframe {
+	width: 100%;
+	min-height: 100%;
 }
