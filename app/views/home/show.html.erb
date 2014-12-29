@@ -1,10 +1,6 @@
-<h1><%=@current.name%></h1>
-<img src="<%=@current["_links"]["image:self"]%>">
 
-<h2>Works</h2>
-<h2>Similar Artists</h2>
-
-</br>
-<h2>A little more about <%=@current.name%></h2>
-<p><%=@current.blurb%></p>
-</br>
+<% if @type == "artist" %>
+<%= render "show_artist" %>
+<% elsif @type == "artwork" %>
+<%= render "show_artwork" %>
+<% end %>

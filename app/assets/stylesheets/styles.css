@@ -1,5 +1,9 @@
-h1,h6 {
+h1,h2,h6 {
 	text-align: center;
+}
+
+p{
+	padding: 10%;
 }
 
 form {
@@ -41,4 +45,10 @@ footer{
 iframe {
 	width: 100%;
 	min-height: 100%;
+}
+
+.header-image{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
