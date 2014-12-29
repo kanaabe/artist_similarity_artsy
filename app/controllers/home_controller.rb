@@ -12,20 +12,15 @@ class HomeController < ApplicationController
 	end
 
 	def show
-		@current = Connection.get(params["link"],params["type"])
-		if params["type"] == "Artist"
-			render '/home/show_artist'
-		else
-			render '/home/show_artwork'
-		end
+		@current = Connection.get(params["link"])
+		render '/home/show'
+		# maybe render a different FINISHED page when link == session[:end_url] ?? 
 	end
 
 	def game
-		
-	end
-
-	def gamesetup
-		render 'game'
+		# session[:start_article] = params[:starting_article]
+		# session[:end_article] = params[:ending_article]
+		@start_article = params[:starting_article]
 	end
 
 end

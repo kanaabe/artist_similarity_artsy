@@ -18,12 +18,12 @@ class Connection
 		arr
 	end
 
-	# def self.get(link,type)
-	# 	@result = Hyperclient.new(link) do |api|
- #  		api.headers['Accept'] = 'application/vnd.artsy-v2+json'
- #  		api.headers['X-Xapp-Token'] = ENV['TOKEN']
-	# 	end
-	# end
+	def self.get(link)
+		@result = Hyperclient.new(link) do |api|
+  		api.headers['Accept'] = 'application/vnd.artsy-v2+json'
+  		api.headers['X-Xapp-Token'] = ENV['TOKEN']
+		end
+	end
 	
 	
 end
