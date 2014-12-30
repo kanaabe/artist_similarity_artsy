@@ -2,10 +2,23 @@
 <img class="header-image" src="<%=@current.thumbnail%>">
 
 <h2>Works</h2>
+<% works = @current.artworks._response.body %>
+<% works["_embedded"]["artworks"].each do |work|%>
+<li>
+	<img src="<%= work['_links']['thumbnail']["href"] %>">
+	<a href="/show?link=<%= work['_links']['self']["href"] %>"><%= work['title'] %></a>
+</li>
+<% end %>
 
-<a href="/show?link=https://api.artsy.net/api/artists/4d8b92b34eb68a1b2c0003f4">Click Next</a>
 
 <h2>Similar Artists</h2>
+<% artists = @current.similar_artists._response.body %>
+<% artists["_embedded"]["artists"].each do |artist|%>
+<li>
+	<img src="<%= artist['_links']['thumbnail']["href"] %>">
+	<a href="/show?link=<%= artist['_links']['self']["href"] %>"><%= artist['name'] %></a>
+</li>
+<% end %>
 
 </br>
 <h2>About <%=@current.name%></h2>

@@ -2,7 +2,7 @@ class Connection
 	
 	def self.start
 		@api = Hyperclient.new('https://api.artsy.net/api') do |api|
-  		api.headers['Accept'] = 'application/vnd.artsy-v2+json'
+			api.headers['Accept'] = 'application/vnd.artsy-v2+json'
   		api.headers['X-Xapp-Token'] = ENV['TOKEN']
 		end
 	end
@@ -31,7 +31,7 @@ class Connection
 
 	def self.get(link)
 		@result = Hyperclient.new(link) do |api|
-  		api.headers['Accept'] = 'application/vnd.artsy-v2+json'
+			api.headers['Accept'] = 'application/vnd.artsy-v2+json'
   		api.headers['X-Xapp-Token'] = ENV['TOKEN']
 		end
 	end
