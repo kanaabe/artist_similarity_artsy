@@ -41,7 +41,7 @@ class Connection
 		links.each do |word|
 			url = word.match(/\(.*\)/)[0].gsub(/[\(\)]/,"").gsub("gene","genes").gsub("artist","artists")
 			text = word.match(/\[.*\]/)[0].gsub(/[\[\]]/,"")
-			blurb = blurb.gsub(word,"<a href='/show?link=https://api.artsy.net/api#{url}'>#{text}</a>")
+			blurb = blurb.gsub(word,"<a class='src-change-link' href='/show?link=https://api.artsy.net/api#{url}'>#{text}</a>")
 		end
 		blurb
 	end
