@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/show', to: 'home#show'
   get '/game', to: 'home#game'
   get '/end', to: 'home#end'
+  get '/results', to: 'home#results'
 end

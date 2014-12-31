@@ -87,3 +87,10 @@ iframe {
 	padding-top: 10px;
 	padding-right: 10px;
 }
+
+.nav-buttons{
+	display:block;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}

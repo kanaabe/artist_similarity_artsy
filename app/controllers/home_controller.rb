@@ -29,4 +29,7 @@ class HomeController < ApplicationController
 	def end
 	end
 
+	def results
+	end
+
 end
