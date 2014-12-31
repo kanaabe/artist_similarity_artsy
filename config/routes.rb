@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   post '/results', to: 'home#search'
   get '/show', to: 'home#show'
   get '/game', to: 'home#game'
+  get '/end', to: 'home#end'
   #resources :home
 end

@@ -3,7 +3,8 @@ h1,h2,h6 {
 }
 
 p{
-	padding: 10%;
+	padding-left: 10%;
+	padding-right: 10%;
 }
 
 form {
@@ -51,4 +52,23 @@ iframe {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.artist-work{
+	display: inline-block;
+}
+
+.artist-work-img{
+	width: 200px;
+}
+
+.artist-works{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: justify;
+}
+
+.center-text{
+	text-align: center;
 }

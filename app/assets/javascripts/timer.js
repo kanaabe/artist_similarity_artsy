@@ -12,11 +12,11 @@ $(document).ready(function(){
   	totalMilliseconds++;
     seconds.innerHTML = (totalMilliseconds/10).toFixed(1);
     
-    // CODE TO STOP THE TIMER
-    // if($('iframe').attr('end-url') == ""){
-    // 	clearTimeout(timer);
-    // }
-    
+    if(top.document.getElementById('currentid').innerHTML == top.document.getElementById('endid').innerHTML){
+      clearTimeout(timer);
+      top.document.getElementById('game-pages').src = '/end';
+    }
+
   }
 	
 });
