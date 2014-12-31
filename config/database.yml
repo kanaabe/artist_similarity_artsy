@@ -5,21 +5,44 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
+ adapter: postgresql
+ encoding: utf8
+ database: ywnbp_db
+ username: root
+ password: hello
+ host: localhost
+ port: 5432
+ pool: 10
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+ adapter: postgresql
+ encoding: utf8
+ database: ywnbp_db
+ username: root
+ password: hello
+ host: localhost
+ port: 5432
+ pool: 10
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: db/test.sqlite3
+ adapter: postgresql
+ encoding: utf8
+ database: ywnbp_db
+ username: root
+ password: hello
+ host: localhost
+ port: 5432
+ pool: 10
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+ adapter: postgresql
+ encoding: utf8
+ database: ywnbp_db
+ username: root
+ password: hello
+ host: localhost
+ port: 5432
+ pool: 10
