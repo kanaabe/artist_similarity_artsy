@@ -27,6 +27,7 @@ $(document).ready(function(){
 
     if (window.location.pathname == '/show') {
         top.document.getElementById('currentid').innerHTML = document.getElementById('currentid-child').innerHTML;
+        setIframeHeight(top.document.getElementById('game-pages'));
     }
 
 });
