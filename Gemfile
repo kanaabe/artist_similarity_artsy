@@ -34,3 +34,4 @@ gem 'pry'
 
 gem 'dotenv'
 gem 'hyperclient'
+gem 'rails_12factor'
