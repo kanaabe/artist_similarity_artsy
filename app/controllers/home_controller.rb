@@ -13,8 +13,11 @@ class HomeController < ApplicationController
 
 	def show
 		@current = Connection.get(params["link"])
-		@blurb = Connection.reformat(@current.blurb).html_safe
-		params["link"].include?("artists") ? @type = "artist" : @type = "artwork"
+		params["link"].include?("genes") ? linkridden = @current.description : linkridden = @current.blurb
+		@blurb = Connection.reformat(linkridden).html_safe
+		@type = "artist" if params["link"].include?("artists")
+		@type = "artwork" if params["link"].include?("artworks")
+		@type = "gene" if params["link"].include?("genes")
 		render '/home/show'
 	end
 

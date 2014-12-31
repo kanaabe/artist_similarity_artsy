@@ -1,7 +1,63 @@
-<h1><%=@current.title%></h1>
-<img src="<%=@current.thumbnail%>">
-<h3>Medium: <%=@current.medium%></h3>
-<h3>Date: <%=@current.medium%></h3>
-<h2>Works</h2>
-<h2>Similar Artists</h2>
+<div class="container">
+	<div class="jumbotron">
+		<h2><%=@current.title%></h2></br>
+		<img class="header-image" src="<%=@current.thumbnail%>">
+	</div>
+
+	<% if !@blurb.nil? || @blurb!=""%>
+		<br><h3 class="center-text">About <i><%=@current.title%></i></h3>
+		<p><%=@blurb%></p></br>
+	<% end %>
+
+	<div class="artwork-blurb">
+		<h3 class="artwork-blurb-item">Medium: <i><%=@current.medium%></i></h3>
+		<h3 class="artwork-blurb-item">Category: <i><%=@current.category%></i></h3>
+		<h3 class="artwork-blurb-item">Date: <i><%=@current.date%></i></h3>
+	</div>
+
+	<h3>The Artist(s)</h3>
+	<div class="artist-works">
+		<% artists = @current.artists._response.body %>
+		<% if artists["_embedded"]["artists"].length == 0 %>
+			<h4>No artists to display</h4>
+		<% end %>
+		<% artists["_embedded"]["artists"].each do |artist|%>
+			<li class="artist-work">
+				<a href="/show?link=<%= artist['_links']['self']["href"] %>" class="src-change-link"><img src="<%= artist['_links']['thumbnail']["href"] %>"></br><%= artist['name'] %></a></br>
+			</li>
+		<% end %>
+		<br>
+	</div>
+
+	<h3>Similar Works</h3>
+	<div class="artist-works">
+		<% works = @current.similar_artworks._response.body %>
+		<% if works["_embedded"]["artworks"].length == 0 %>
+			<h4>No works to display</h4>
+		<% end %>
+		<% works["_embedded"]["artworks"].each do |work|%>
+			<li class="artist-work">
+				<a href="/show?link=<%= work['_links']['self']["href"] %>" class="src-change-link"><img class="artist-work-img" src="<%= work['_links']['thumbnail']["href"] %>"></br><%= work['title'] %></a>
+			</li>
+		<% end %>
+	</div>
+
+	<h3>Related Categories</h3>
+	<div class="artist-works">
+		<% genes = @current.genes._response.body %>
+		<% if genes["_embedded"]["genes"].length == 0 %>
+			<h4>No genes to display</h4>
+		<% end %>
+		<% genes["_embedded"]["genes"].each do |gene|%>
+			<li class="artist-work">
+				<a href="/show?link=<%= gene['_links']['self']["href"] %>" class="src-change-link"><img class="artist-work-img" src="<%= gene['_links']['thumbnail']["href"] %>"></br><%= gene['name'] %></a>
+			</li>
+		<% end %>
+	</div>
+
+
+
+
+</div>
+
 </br>

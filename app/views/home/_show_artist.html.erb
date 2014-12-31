@@ -37,5 +37,18 @@
 		<br>
 	</div>
 
+	<h3>Related Categories</h3>
+	<div class="artist-works">
+		<% genes = @current.genes._response.body %>
+		<% if genes["_embedded"]["genes"].length == 0 %>
+			<h4>No genes to display</h4>
+		<% end %>
+		<% genes["_embedded"]["genes"].each do |gene|%>
+			<li class="artist-work">
+				<a href="/show?link=<%= gene['_links']['self']["href"] %>" class="src-change-link"><img class="artist-work-img" src="<%= gene['_links']['thumbnail']["href"] %>"></br><%= gene['name'] %></a>
+			</li>
+		<% end %>
+	</div>
+
 	</br>
 </div>
