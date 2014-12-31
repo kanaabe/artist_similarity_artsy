@@ -11,9 +11,10 @@ $(document).ready(function(){
   function setTime(){
   	totalMilliseconds++;
     seconds.innerHTML = (totalMilliseconds/10).toFixed(1);
-    
+
     if(top.document.getElementById('currentid').innerHTML == top.document.getElementById('endid').innerHTML){
       clearTimeout(timer);
+      document.getElementById('game-pages').height = 200;
       top.document.getElementById('game-pages').src = '/end';
     }
 

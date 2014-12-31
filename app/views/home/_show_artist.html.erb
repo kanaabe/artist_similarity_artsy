@@ -31,9 +31,10 @@
 		<% end %>
 		<% artists["_embedded"]["artists"].each do |artist|%>
 			<li class="artist-work">
-				<a href="/show?link=<%= artist['_links']['self']["href"] %>" class="src-change-link"><img src="<%= artist['_links']['thumbnail']["href"] %>"></br><%= artist['name'] %></a>
+				<a href="/show?link=<%= artist['_links']['self']["href"] %>" class="src-change-link"><img src="<%= artist['_links']['thumbnail']["href"] %>"></br><%= artist['name'] %></a></br>
 			</li>
 		<% end %>
+		<br>
 	</div>
 
 	</br>
