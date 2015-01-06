@@ -3,12 +3,20 @@ class Connection
 	def self.start
 		@api = Hyperclient.new('https://api.artsy.net/api') do |api|
 			api.headers['Accept'] = 'application/vnd.artsy-v2+json'
-  		api.headers['X-Xapp-Token'] = ENV['TOKEN']
+		end
+		@@token = @api.tokens.xapp_token._post(client_id: ENV['CLIENT_ID'], client_secret: ENV['CLIENT_SECRET']).token
+	end
+
+	def self.get(link)
+		@result = Hyperclient.new(link) do |api|
+			api.headers['Accept'] = 'application/vnd.artsy-v2+json'
+  		api.headers['X-Xapp-Token'] = @@token
 		end
 	end
 
 	def self.search(keyword)
-		result = @api.search(q: keyword)
+		url = "https://api.artsy.net/api/search?q=#{keyword}"
+		result = get(url)
 		arr = []
 		result.results.each do |result|
 			if result.type == "Artist" || result.type == "Artwork"
@@ -29,13 +37,6 @@ class Connection
 		true
 	end
 
-	def self.get(link)
-		@result = Hyperclient.new(link) do |api|
-			api.headers['Accept'] = 'application/vnd.artsy-v2+json'
-  		api.headers['X-Xapp-Token'] = ENV['TOKEN']
-		end
-	end
-
 	def self.reformat(blurb)
 		links = blurb.scan(/\[.*?\]\(.*?\)/)
 		links.each do |word|
@@ -51,11 +52,5 @@ class Connection
 	end
 	
 end
-
-
-
-
-
-
 
 
