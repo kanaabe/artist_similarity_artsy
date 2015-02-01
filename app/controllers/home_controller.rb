@@ -13,11 +13,17 @@ class HomeController < ApplicationController
 
 	def show
 		@current = Connection.get(params["link"])
-		params["link"].include?("genes") ? linkridden = @current.description : linkridden = @current.blurb
+		# genres have descriptions, artworks have blurbs, artists have none (as of 1/26).
+		linkridden = @current.description if params["link"].include?("genes")
+		linkridden = @current.blurb if params["link"].include?("artworks")
+		linkridden = "" if params["link"].include?("artists")
 		@blurb = Connection.reformat(linkridden).html_safe
+
+		# set page types
 		@type = "artist" if params["link"].include?("artists")
 		@type = "artwork" if params["link"].include?("artworks")
 		@type = "gene" if params["link"].include?("genes")
+		
 		render '/home/show'
 	end
 
