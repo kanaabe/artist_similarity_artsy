@@ -4,5 +4,5 @@ Similar to the [Wiki Game](http://en.wikipedia.org/wiki/Wikipedia:Wiki_Game), pl
 
 It is an explorative and learning game aiming to playfully recognize relationships between art entities. Enjoy!
 
-[Play The Game](theartistgame.herokuapp.com)
+[Play The Game](http://theartistgame.herokuapp.com)
 
